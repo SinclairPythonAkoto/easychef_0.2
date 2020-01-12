@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EasyCHEF!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <style>
+  body,h1,h5 {font-family: "Raleway", sans-serif}
+  body, html {height: 100%}
+  .bgimg {
+    background-image: url('/static/kitchen_counter1.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+  </style>
+  <script src="https://kit.fontawesome.com/fbfdd5a072.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<div class="bgimg w3-display-container w3-text-white">
+  <div class="w3-display-middle w3-jumbo w3-container w3-black w3-opacity w3-padding-medium">
+    <p>EasyCHEF!</p>
+  </div>
+  <div class="w3-display-topleft w3-container w3-xlarge">
+    <p><button onclick="document.getElementById('about').style.display='block'" class="w3-button w3-black">About</button></p>
+  </div>
+  <div class="w3-display-topright w3-container w3-xlarge">
+    <p><button onclick="document.getElementById('search').style.display='block'" class="w3-button w3-black">SEARCH</button></p>
+  </div>
+  <div class="w3-display-bottomright w3-container w3-xlarge">
+    <p><button onclick="document.getElementById('meals').style.display='block'" class="w3-button w3-black">MY MEAL</button></p>
+  </div>
+  <div class="w3-display-bottomleft w3-container">
+    <p class="w3-large">Design. Build. Apply!</p>
+    <p class="w3-text-white">
+      Created by
+      <a href="https://sinclairakoto.onrender.com/BondRobotics" target="_blank" class="w3-hover-text-blue">
+        <b>BondRobotics</b>
+      </a>
+    </p>
+    <p class="w3-text-blue">
+      <a href="https://www.facebook.com/Bondrobotics"><i class="fab fa-facebook-f w3-hover-opacity"></i></a>
+      <a href="https://www.instagram.com/BondRobotics"><i class="fab fa-instagram w3-hover-opacity"></i></a>
+      <a href="https://www.snapchat.com/add/bondrobotics"><i class="fab fa-snapchat w3-hover-opacity"></i></a>
+      <a href="https://github.com/SinclairPythonAkoto"><i class="fab fa-github w3-hover-opacity"></i></a>
+      <a href="https://www.twitter.com/BondRobotics"><i class="fab fa-twitter w3-hover-opacity"></i></a>
+      <a href="https://www.linkedin.com/in/sinclair-akoto-a6997a146/"><i class="fab fa-linkedin w3-hover-opacity"></i></a>
+    </p>
+  </div>
+</div>
+
+{% block content %}{% endblock %}
+
+</body>
+</html>

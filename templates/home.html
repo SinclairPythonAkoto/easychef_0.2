@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- About Modal -->
+<div id="about" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black w3-display-container">
+      <span onclick="document.getElementById('about').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <h1>EasyCHEF!</h1>
+    </div>
+    <div class="w3-container">
+        <div class="w3-center">
+          <img src="/static/kitchen.jpeg" alt="kitchen" width="754" height="242">
+        </div>
+      <p>
+        <b>EasyCHEF!</b> is a simple web app that supplies recipes for everyone to use! Once your ingredients are entered into
+        the search engine, <b>EasyCHEF!</b> will find a recipe containing the same ingredients.  This allows you to try
+        something different, or to be adventurous when testing your skills in the kitchen!  This web app is designed to promote
+        healthy eating, and an alternative choice for your meals.
+      </p>
+    </div>
+    <div class="w3-container w3-black">
+      <h1>An easy choice of healthy eating foods!</h1>
+    </div>
+    <div class="w3-container">
+      <div class="w3-center">
+        <img src="/static/group_eating.jpg" alt="group_eating" width="554" height="242">
+      </div>
+      <p>
+        Are you tired of eating the same food? Do you feel like trying something new or simply test your culinary skills? Then
+        <b>EasyCHEF!</b> is the right app for you!  With a choice of over 300,000+ recipes at hand, <b>EasyCHEF!</b> is never
+        short of options when providing a meal. By making <b>EasyCHEF!</b> simple and easy to use, even a beginner in the kitchen
+        can feel like a master chef!
+      </p>
+    </div>
+    <div class="w3-container w3-black">
+      <h1>Contact us</h1>
+    </div>
+    <div class="w3-container w3-center">
+      <div class="w3-container">
+        <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-blue"></i>London, UK</p>
+        <p><i class="fas fa-at fa-fw w3-margin-right w3-large w3-text-blue"></i>bondrobotics@gmail.com</p>
+        <p>
+          <a href="#" class="w3-text-green">
+            <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-blue"></i><b>07544669973</b>
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEARCH Modal -->
+<div id="search" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('search').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <h1>Search for a recipe</h1>
+    </div>
+    <div class="w3-container">
+      <p>
+        Enter your ingredients below <b class="w3-text-blue">(separated by a comma)</b> to let <b>EasyCHEF</b> find you a meal!
+      </p>
+      <form action="{{ url_for('home') }}" method="post">
+        <p>
+          Find me a meal with..
+          <input class="w3-input w3-padding-16 w3-border" name="ingredients" type="text" placeholder="example: tomato, onions, garlic" required>
+        </p>
+        <br>
+        <p class="w3-text-blue">
+          Don't forget to click <b class="w3-text-black">MY MEAL</b> to view the recipe <b>EasyCHEF!</b> has found for you!
+        </p>
+        <p><button class="w3-button" type="submit">FIND MEAL</button></p>
+        <div class="w3-container">
+          <b>
+            <p class="w3-text-red w3-medium">{{ void }}</p>
+            <p class="w3-text-black w3-meium">{{ error }}</p>
+          </b>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="meals" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('meals').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <h1>Your Meal</h1>
+    </div>
+    <div class="w3-container">
+      <p>
+        Your meal by <b>EasyCHEF!</b> is displayed below:
+      </p>
+      <div class="w3-container">
+        <b>
+          <p class="w3-text-red w3-medium">{{ void }}</p>
+          <p class="w3-text-black w3-meium">{{ error }}</p>
+        </b>
+      </div>
+        <br>
+        <div>
+		        <h2><b>{{ title }}</b></h2><br>
+		        <p><img src="{{ image }}"><br>
+              <a href="{{ url_source }}" class="w3-text-blue">{{ title }}</a>
+            </p>
+		        {% for s in steps %}
+		        <ul>
+			           <li>{{ s['step'] }}</li>
+		        </ul>
+		        {% endfor %}
+
+            {% if duration %}
+		          <p class="w3-text-red" style="font-style: italic">{{ duration }} approximately to cook.</p>
+		            <p>You can find the <strong><a href="{{ url_source }}" class="w3-text-blue">full recipe here</a></strong> for a detailed menu.</p>
+            {% endif %}
+	      </div>
+      <!-- </form> -->
+    </div>
+  </div>
+</div>
+
+{% endblock %}
